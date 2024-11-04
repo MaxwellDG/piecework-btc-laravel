@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrganizationPostRequest;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class OrganizationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +18,9 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create(OrganizationPostRequest $request)
     {
-        
-        
+
     }
 
     /**
@@ -28,7 +28,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->get('name');
+        return ['name' => $name];
     }
 
     /**
@@ -59,6 +60,16 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }
+
+    public function acceptNewUserRequest(string $id)
+    {
+        //
+    }
+
+    public function rejectNewUserRequest(string $id)
     {
         //
     }
